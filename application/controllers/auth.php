@@ -7,6 +7,7 @@ class auth extends CI_Controller {
     parent::__construct();
     $this->load->model('aut_model');
     $this->load->libraries('Session');
+    // $this->load->view('viewname');
   }
 
   function index()
