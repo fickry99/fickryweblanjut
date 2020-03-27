@@ -1,18 +1,13 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-class aut_model extends CI_Controller {
+class aut_model extends CI_Model {
 
-
-  function login($data)
+  public function login($data)
   {
     $this->db->where('username',$data['username']);
     $this->db->where('password',$data['password']);
-    $query = $this->db->get('login');
-
-    if ($query->num_rows() == 1) {
-      return $query->row(0)->id;
-    }else{
+    $query  = $this->db->get('login');
     return $query;
-
   }
 }
