@@ -12,7 +12,7 @@
                 <tr>
                   <th>no </th>
                   <th>Nama Barang</th>
-                  <th class="numeric">tanggal masuk</th>
+                  <th class="numeric">tanggal update</th>
                   <th class="numeric">stok</th>
                   <th class="numeric">pilihan</th>
                 </tr>

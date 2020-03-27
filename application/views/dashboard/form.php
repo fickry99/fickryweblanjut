@@ -10,8 +10,8 @@
               <div class="form-group ">
                 <label for="cname" class="control-label col-lg-2">Name barang</label>
                 <div class="col-lg-10">
-                  <input class=" form-control" type="text" name="nama" />
-                  <small class="form-text text-danger"><?php echo form_error('nama') ?></small>
+                  <input class=" form-control" type="text" name="nama_barang" />
+                  <small class="form-text text-danger"><?php echo form_error('nama_barang') ?></small>
                 </div>
               </div>
               <div class="form-group ">

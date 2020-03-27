@@ -34,14 +34,6 @@ class dashboard extends CI_Controller {
     $this->load->view('layouts/footer');
   }
 
-  public function login()    // functiom untuk memanggil halaman login
-  {
-    $judul['judul'] = 'SR INVENTORY';   // seting judul di taskbar atas
-
-
-      $this->load->view('dashboard/login',$judul);
-  }
-
   public function tambah()
   {
     $judul['judul'] = 'SR INVENTORY';
@@ -59,11 +51,12 @@ class dashboard extends CI_Controller {
   $this->form_validation->set_rules('stok','stok','require');
 
   if($this->form_validation->run() != false){
-        echo "data telah ditambahkan";
+     $this->session->set_flashdata('status','data yang anda masukan salah');
+    redirect(base_url('dashboard/tambah'));
     }else{
-          $this->load->view('dahsboard/table',$data);
+          redirect(base_url('dashboard/table'));
 
-                }
+      }
 
   }
 
