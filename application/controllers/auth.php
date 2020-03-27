@@ -5,8 +5,7 @@ class auth extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('aut_model');
-    $this->load->libraries('Session');
+    // $this->load->model('aut_model');
     // $this->load->view('viewname');
   }
 
@@ -17,22 +16,23 @@ class auth extends CI_Controller {
   }
   public function proses_login()
   {
-    $this->form_validation->set_rules('username','Username','require');
+    $this->form_validation->set_rules('username','username','require');
     $this->form_validation->set_rules('password','password','require');
 
-    if ($this->form_validation->run() == FALSE){
-      $this->login();
+    if ($this->form_validation->run() === FALSE){
+      // $this->login();
     }else{
     $username = $this->input->post('username',true);
     $password = $this->input->post('password',true);
-    $data = array('username' => $username,
-                   'password' => $password);
 
     $result = $this->aut_model->login($data);
-    if ($result->num_row() > 0) {
 
-      $this->session->set_userdata($result->row_array());
-      redirect(base_url());
+    if ($result) {
+      $result = array('username' => $username,
+                     'password' => $password);
+
+      $this->session->set_userdata($result);
+      redirect(base_url(  ));
     }else {
       $this->session->set_flashdata('pesan','username atau password salah');
       redirect(base_url('auth/index'));
