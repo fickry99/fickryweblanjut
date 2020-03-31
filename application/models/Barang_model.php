@@ -8,4 +8,20 @@ class Barang_model extends CI_Model{
       return $this->db->get('data_barang');
   }
 
+  public function input_data($data, $table)
+  {
+    $this->db->insert($table, $data);
+  }
+
+  public function hapus_data($where,$table)
+  {
+    $this->db->where($where);
+    $this->db->delete($table);
+  }
+
+  public function edit_data($where, $table)
+  {
+    return $this->bd->get_where($table, $where);
+  }
+
 }

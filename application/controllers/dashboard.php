@@ -46,18 +46,43 @@ class dashboard extends CI_Controller {
   public function tambah_proses()
   {
 
-  $this->form_validation->set_rules('nama','Nama','require');
-  $this->form_validation->set_rules('tanggal','tanggal','require');
+  $this->form_validation->set_rules('nama_barang','Nama','require');
+  $this->form_validation->set_rules('tanggal_masuk','tanggal','require');
   $this->form_validation->set_rules('stok','stok','require');
 
-  if($this->form_validation->run() != false){
-     $this->session->set_flashdata('status','data yang anda masukan salah');
-    redirect(base_url('dashboard/tambah'));
-    }else{
-          redirect(base_url('dashboard/table'));
+  $nama_barang = $this->input->post('nama_barang');
+  $tanggal_masuk = $this->input->post('tanggal_masuk');
+  $stok = $this->input->post('stok');
 
-      }
+  $data = array(
+    'nama_barang' => $nama_barang,
+    'tanggal_masuk' => $tanggal_masuk,
+    'stok' => $stok
+  );
 
+  $this ->Barang_model->input_data($data,'data_barang');
+  redirect('dashboard/table');
+
+  }
+
+  public function hapus($id_barang)
+  {
+      $where = array('id_barang' => $id_barang);
+      $this->Barang_model->hapus_data($where,'data_barang');
+      redirect('dashboard/table');
+  }
+
+  public function edit()
+  {
+    $this->load->view('dashboard/edit');
+
+  }
+
+  public function edit_proses($id_barang)
+  {
+      $where = array('id_barang' => $id_barang);
+      $data['data_barang'] = $this->Barang_model->edit_data($where,'data_barang')->result();
+      redirect('dashboard/table');
   }
 
 

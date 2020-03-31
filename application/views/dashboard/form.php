@@ -1,6 +1,6 @@
 <section id="main-content">
   <section class="wrapper">
-    <h3><i class="fa fa-angle-right"></i> tambah data</h3>
+    <h3><i class="fa fa-angle-right"></i> Update data</h3>
     <!-- /row -->
     <!-- FORM VALIDATION -->
     <div class="row mt">
@@ -11,13 +11,12 @@
                 <label for="cname" class="control-label col-lg-2">Name barang</label>
                 <div class="col-lg-10">
                   <input class=" form-control" type="text" name="nama_barang" />
-                  <small class="form-text text-danger"><?php echo form_error('nama_barang') ?></small>
                 </div>
               </div>
               <div class="form-group ">
                 <label for="cemail" class="control-label col-lg-2">tanggal </label>
                 <div class="col-lg-10">
-                  <input class="form-control " type="date"  name="tanggal" />
+                  <input class="form-control " type="date"  name="tanggal_masuk" />
                 </div>
               </div>
               <div class="form-group ">

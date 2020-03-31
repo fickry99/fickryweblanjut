@@ -15,6 +15,7 @@
                   <th class="numeric">tanggal update</th>
                   <th class="numeric">stok</th>
                   <th class="numeric">pilihan</th>
+                  <th><a href=<?php echo base_url('dashboard/tambah') ?> class="btn btn-primary" > Tambah</th>
                 </tr>
               </thead>
               <?php
@@ -26,9 +27,9 @@
                   <td><?php echo $ass->tanggal_masuk ?></td>
                   <td><?php echo $ass->stok ?></td>
                   <td>
-                     <a href=<?php echo base_url('dashboard/tambah') ?> class="btn btn-success" > Tambah
+                     <a href=<?php echo base_url('dashboard/edit') ?> class="btn btn-success" > Update
                     <a <?php echo base_url() ?> class="btn btn-info">Info
-                     <a <?php echo base_url() ?>class="btn btn-warning">hapus</td>
+                     <a class="btn btn-warning" <?php echo anchor('dashboard/hapus/'.$ass->id_barang,'Hapus') ?></td>
                 </tr>
               <?php endforeach ?>
             </table>
