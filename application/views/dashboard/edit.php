@@ -44,27 +44,28 @@
     <div class="row mt">
       <div class="col-lg-12">
           <div class=" form" class="cmxform form-horizontal style-form">
-            <?php foreach($data_barang as $u){ ?>
+
           	<?php echo form_open ('dashboard/edit_proses', array('method' => 'POST' )); ?>
               <div class="form-group ">
                 <label for="cname" class="control-label col-lg-2">Name barang</label>
                 <div class="col-lg-10">
-                  <input class=" form-control" type="hidden" name="id_barang" value="<?php echo $u->id_barang ?>" />
-                  <input class=" form-control" type="text" name="nama_barang" value="<?php echo $u->nama_barang ?>"/>
+                  <input class=" form-control" type="hidden" name="id_barang" value="<?php echo $barang->id_barang ?>" />
+                  <input class=" form-control" type="text" name="nama_barang" value="<?php echo $barang->nama_barang ?>" disabled/>
                 </div>
               </div>
               <div class="form-group ">
                 <label for="cemail" class="control-label col-lg-2">tanggal </label>
                 <div class="col-lg-10">
-                  <input class="form-control " type="date"  name="tanggal_masuk" value="<?php echo $u->tanggal_masuk ?>" />
+                  <input class="form-control " type="text" value="<?php echo date('Y-m-d') ?>" disabled />
                 </div>
               </div>
               <div class="form-group ">
                 <label for="curl" class="control-label col-lg-2">jumlah</label>
                 <div class="col-lg-10">
-                  <input class="form-control " type="text" name="stok" value="<?php echo $u->stok ?>" />
+                  <input class="form-control " type="text" name="stok" value="<?php echo $barang->stok ?>" />
                 </div>
               </div>
+
               <div class="form-group">
                 <div class="col-lg-offset-2 col-lg-10">
                   <button class="btn btn-theme"> SAVE</button>

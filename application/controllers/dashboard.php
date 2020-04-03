@@ -72,17 +72,31 @@ class dashboard extends CI_Controller {
       redirect('dashboard/table');
   }
 
-  public function edit()
+  public function edit($id_barang)
   {
-    $this->load->view('dashboard/edit');
+    $data['barang'] = $this->Barang_model->getSingleData($id_barang)->row();
+    $judul['judul'] = 'SR INVENTORY';
+
+    $this->load->view('layouts/header', $judul);
+    $this->load->view('dashboard/edit',$data);
+    $this->load->view('layouts/footer');
 
   }
 
-  public function edit_proses($id_barang)
+  public function edit_proses()
   {
-      $where = array('id_barang' => $id_barang);
-      $data['data_barang'] = $this->Barang_model->edit_data($where,'data_barang')->result();
-      redirect('dashboard/table');
+    $id_barang     = $this->input->post('id_barang');
+    $tanggal_masuk = date('Y-m-d');
+    $stok          = $this->input->post('stok');
+
+    $data = array(
+        'tanggal_masuk' => $tanggal_masuk,
+        'stok'          => $stok
+    );
+
+    $result = $this->Barang_model->edit_data($data,$id_barang);
+      redirect(base_url('dashboard/table'));
+
   }
 
 

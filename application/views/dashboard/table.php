@@ -27,9 +27,11 @@
                   <td><?php echo $ass->tanggal_masuk ?></td>
                   <td><?php echo $ass->stok ?></td>
                   <td>
-                     <a href=<?php echo base_url('dashboard/edit') ?> class="btn btn-success" > Update
-                    <a <?php echo base_url() ?> class="btn btn-info">Info
-                     <a class="btn btn-warning" <?php echo anchor('dashboard/hapus/'.$ass->id_barang,'Hapus') ?></td>
+                     <a href="<?php echo base_url('dashboard/edit/'.$ass->id_barang) ?>" class="btn btn-success" > Update</a>
+
+                     <a href="" class="btn btn-info">Info </a>
+
+                     <a class="btn btn-warning" href="<?php echo base_url('dashboard/hapus/'.$ass->id_barang) ?>" >Hapus</a></td>
                 </tr>
               <?php endforeach ?>
             </table>
