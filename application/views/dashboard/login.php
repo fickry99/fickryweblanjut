@@ -35,6 +35,11 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
+      <?php if (!empty($this->session->flashdata('status') ) ): ?>
+      <div class="alert alert-danger">
+     <?php echo $this->session->flashdata('status') ?>
+      </div>
+      <?php endif; ?>
       <?php echo form_open('auth/proses_login', array('method' => 'POST' )); ?>
         <h2 class="form-login-heading">LOGIN</h2>
         <div class="login-wrap">

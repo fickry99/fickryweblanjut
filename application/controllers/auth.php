@@ -33,44 +33,19 @@ class auth extends CI_Controller {
       if ($cek_user->num_rows() > 0) {
         $this->session->set_userdata($cek_user->row_array());
         $this->session->set_flashdata('flash',$this->session->username);
-        redirect(base_url());
+        redirect(base_url('dashboard'));
 
-      }else {
+      }else{
         $this->session->set_flashdata('status','Username atau Password tidak ditemukan');
         redirect(base_url('auth/index'));
       }
     }
   }
 
+  public function logout()
+  {
+    $this->session->sess_destroy();
+    redirect(base_url());
+  }
 
 }
-
-// function aksi_login(){
-// 		$username = $this->input->post('username');
-// 		$password = $this->input->post('password');
-// 		$where = array(
-// 			'username' => $username,
-// 			'password' => md5($password)
-// 			);
-// 		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
-// 		if($cek > 0){
-//
-// 			$data_session = array(
-// 				'nama' => $username,
-// 				'status' => "login"
-// 				);
-//
-// 			$this->session->set_userdata($data_session);
-//
-// 			redirect(base_url("admin"));
-//
-// 		}else{
-// 			echo "Username dan password salah !";
-// 		}
-// 	}
-//
-// 	function logout(){
-// 		$this->session->sess_destroy();
-// 		redirect(base_url('login'));
-// 	}
-// }

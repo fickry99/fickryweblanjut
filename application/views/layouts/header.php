@@ -43,10 +43,10 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="<?php echo base_url() ?>" class="logo"><b>SR<span>BAKERY</span></b></a>  
+      <a href="<?php echo base_url('dashboard') ?>" class="logo"><b>SR<span>BAKERY</span></b></a>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="<?php echo base_url('auth') ?>">Logout</a></li>
+          <li><a class="logout" href="<?php echo base_url('auth/logout') ?>">Logout</a></li>
         </ul>
       </div>
     </header>
@@ -62,7 +62,7 @@
           <p class="centered"><a href="profile.html"><img src="<?php echo base_url('assets/') ?>img/ui-sam.jpg" class="img-circle" width="80"></a></p>
           <h5 class="centered"><?php echo $this->session->username ?></h5>
           <li class="mt">
-            <a class="active" href="<?php echo base_url() ?>">
+            <a class="active" href="<?php echo base_url('dashboard') ?>">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>

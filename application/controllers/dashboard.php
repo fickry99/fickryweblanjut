@@ -46,9 +46,9 @@ class dashboard extends CI_Controller {
   public function tambah_proses()
   {
 
-  $this->form_validation->set_rules('nama_barang','Nama','require');
-  $this->form_validation->set_rules('tanggal_masuk','tanggal','require');
-  $this->form_validation->set_rules('stok','stok','require');
+  $this->form_validation->set_rules('nama_barang','Nama','required');
+  $this->form_validation->set_rules('tanggal_masuk','tanggal','required');
+  $this->form_validation->set_rules('stok','stok','required');
 
   $nama_barang = $this->input->post('nama_barang');
   $tanggal_masuk = $this->input->post('tanggal_masuk');
@@ -97,6 +97,19 @@ class dashboard extends CI_Controller {
     $result = $this->Barang_model->edit_data($data,$id_barang);
       redirect(base_url('dashboard/table'));
 
+  }
+
+  public function info()
+  {
+    $query = $this->Barang_model->getAlldata()->result();
+    $data['data_barang'] = $query ;
+    $data2['data_barang_keluar'] = $query;
+
+    $judul['judul'] = 'SR INVENTORY';     // seting judul di taskbar atas
+
+    $this->load->view('layouts/header', $judul);
+    $this->load->view('dashboard/info',$data2);
+    $this->load->view('layouts/footer');
   }
 
 

@@ -28,7 +28,7 @@
                   <td>
                      <a href="<?php echo base_url('dashboard/edit/'.$ass->id_barang) ?>" class="btn btn-success" > Update</a>
 
-                     <a href="<?php echo base_url('dashboard/info') ?>" class="btn btn-info">Info </a>
+                     <a href="" class="btn btn-info">Info </a>
 
                      <a class="btn btn-warning" href="<?php echo base_url('dashboard/hapus/'.$ass->id_barang) ?>" >Hapus</a></td>
                 </tr>

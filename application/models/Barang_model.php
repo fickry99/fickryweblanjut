@@ -6,6 +6,7 @@ class Barang_model extends CI_Model{
   public function getAlldata()
   {
       return $this->db->get('data_barang');
+      return $this->db->get('data_barang_keluar');
   }
 
   public function getSingleData($id_barang)
