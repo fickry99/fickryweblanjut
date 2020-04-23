@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>Login Admin</title>
 
   <!-- Favicons -->
   <link href="<?php echo base_url('assets/') ?>img/favicon.png" rel="icon">
@@ -35,11 +35,13 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <?php if (!empty($this->session->flashdata('status') ) ): ?>
+
+      <?php if (!empty($this->session->flashdata('is_failed') ) ): ?>
       <div class="alert alert-danger">
-     <?php echo $this->session->flashdata('status') ?>
+     <?php echo $this->session->flashdata('is_failed') ?>
       </div>
       <?php endif; ?>
+
       <?php echo form_open('auth/proses_login', array('method' => 'POST' )); ?>
         <h2 class="form-login-heading">LOGIN</h2>
         <div class="login-wrap">
@@ -49,10 +51,6 @@
           <input type="password" name="password" class="form-control" placeholder="Password">
           <small class="form-text text-danger"><?= form_error('password'); ?></small>
           <label class="checkbox">
-            <input type="checkbox" value="remember-me"> Remember me
-            <span class="pull-right">
-            <a data-toggle="modal"> Forgot Password?</a>
-            </span>
             </label>
           <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> LOGIN</button>
           <?php echo form_close() ?>

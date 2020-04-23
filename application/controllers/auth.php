@@ -1,17 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class auth extends CI_Controller {
+class Auth extends CI_Controller {
 
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('aut_model');
   }
 
-  function index()
+  public function index()
   {
-    $this->load->view('Dashboard/login');
-
+    $this->load->view('auth/login');
   }
 
   public function proses_login()
@@ -24,20 +22,17 @@ class auth extends CI_Controller {
     }else {
       $username = $this->input->post('username',true);
       $password = $this->input->post('password',true);
-      $data = array(
-              'username' => $username,
-              'password' => $password
-          );
-
-      $cek_user	= $this->aut_model->login($data);
-      if ($cek_user->num_rows() > 0) {
-        $this->session->set_userdata($cek_user->row_array());
-        $this->session->set_flashdata('flash',$this->session->username);
-        redirect(base_url('dashboard'));
-
-      }else{
-        $this->session->set_flashdata('status','Username atau Password tidak ditemukan');
-        redirect(base_url('auth/index'));
+      if ($username == 'admin' && $password == 'admin') {
+        $data = array(
+                'username' => $username,
+                'password' => $password
+            );
+        $this->session->set_userdata($data);
+        $this->session->set_flashdata('is_login','Anda berhasil login!');
+        redirect('Dashboard');
+      }else {
+        $this->session->set_flashdata('is_failed','Anda tidak berhasil login!');
+        redirect(base_url());
       }
     }
   }
