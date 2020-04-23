@@ -26,14 +26,13 @@
                   <td class="text-center"><?php echo $db->stok ?> Stok</td>
                   <td class="text-center"><?php echo $db->keterangan ?> </td>
                   <?php if ($db->stok > 0): ?>
-                    <td class="text-center"><span class="label label-success label-mini ">Barang Tersedia</span></td>
+                    <td class="text-center"><span class="label label-success label-mini "><?php echo $db->status ?></span></td>
                   <?php else: ?>
-                    <td class="text-center"><span class="label label-danger label-mini ">Restock Segera</span></td>
+                    <td class="text-center"><span class="label label-danger label-mini "><?php echo $db->status ?></span></td>
                   <?php endif; ?>
 
                   <td class="text-center">
-                    <a href="<?php echo base_url('Mutasi/barang_masuk/'.$db->id_barang) ?>" class="btn btn-success btn-xs "><i class="fa fa-arrow-circle-down"></i></a>
-                    <a href="<?php echo base_url('Mutasi/barang_keluar/'.$db->id_barang) ?>" class="btn btn-warning btn-xs "><i class="fa fa-arrow-circle-up"></i></a>
+                    <a href="<?php echo base_url('Mutasi/info_mutasi/'.$db->id_barang) ?>" class="btn btn-info btn-xs "><i class="fa fa-info-circle"></i></a>
                     <a href="<?php echo base_url('Barang/edit_barang/'.$db->id_barang) ?>" class="btn btn-primary btn-xs "><i class="fa fa-pencil"></i></a>
                     <a href="<?php echo base_url('Barang/hapus_barang/'.$db->id_barang) ?>" class="btn btn-danger btn-xs "><i class="fa fa-trash-o "></i></a>
                   </td class="text-center">

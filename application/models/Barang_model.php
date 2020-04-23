@@ -18,7 +18,8 @@ class Barang_model extends CI_Model{
 
   public function getAllBarang()
   {
-      return $this->db->get('data_barang');
+    $procedure = "CALL pview_barang()";
+    return $this->db->query($procedure);
   }
 
   public function getSingleBarang($id_barang)

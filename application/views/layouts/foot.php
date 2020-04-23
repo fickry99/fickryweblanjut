@@ -22,6 +22,13 @@
 <!-- Page level custom scripts -->
 <script src="<?php echo base_url('assets/') ?>lib/datatables-demo.js"></script>
 
+<script type="text/javascript" src="<?php echo base_url('assets/') ?>lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/') ?>lib/bootstrap-daterangepicker/date.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/') ?>lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/') ?>lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/') ?>lib/bootstrap-daterangepicker/moment.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/') ?>lib/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+
 
 
 
